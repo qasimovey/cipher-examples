@@ -1,5 +1,6 @@
 package org.qasimovey;
 
+import org.qasimovey.attack.CeaserAttack;
 import org.qasimovey.cipher.CeaserCipher;
 
 public class MainApplication {
@@ -13,5 +14,14 @@ public class MainApplication {
 
         System.out.println(String.format("Encrypted message is : %s",cipher));
         System.out.println(String.format("After decryption, origal message was: %s",result));
+
+        //for Attacking purpose example
+
+        var givenMessage = "Ban is calling Alice";
+
+        var givenCipher = CeaserCipher.encrypt(givenMessage,23);
+        var resultAttack = CeaserAttack.breakCipher(givenCipher);
+
+        System.out.println(resultAttack);
     }
 }
